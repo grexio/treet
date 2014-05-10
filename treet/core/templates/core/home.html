@@ -16,5 +16,21 @@
 <a href="{% url 'new-treet' %}" type="button" class="btn btn-default btn-medium pull-right">
   <span class="glyphicon glyphicon-plus-sign"></span> New Treet
 </a>
-<h1>Hello world</h1>
+<div class="page-header">
+  <h1><small>Find people to get stuff done</small></h1>
+</div>
+
+<div class="treets-listing">
+  {% for tr in treets %}
+  <div class="treet-item">
+    <a href="{% url 'treet-details' tr.id %}" title="{{ treet.title }}">
+      <img class="treet-thumb" src="http://img.youtube.com/vi/{{ tr.video }}/0.jpg" />
+      <h4 class="treet-title">{{ tr.title }}</h4>
+    </a>
+    <div class="treet-details">
+      <p class="treet-user">{{ tr.user.username }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

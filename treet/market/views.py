@@ -20,3 +20,8 @@ def new_treet(request):
     else:
         form = TreetCreationForm()
     return render(request, "market/add-treet.html", {'form': form})
+
+
+@login_required
+def treet_details(request, treet_id):
+    return "hello"

@@ -23,3 +23,31 @@ body {
     background: #a6f5be;
     border: green 1px dotted;
 }
+
+.treet-listing {
+    overflow: hidden;
+}
+
+.treet-item {
+    display: block;
+    border: 1px solid #ddd;
+    margin: 20px 10px;
+    padding: 5px;
+    float: left;
+    width: 210px;
+    min-height: 300px;
+    text-decoration: none;
+}
+
+.treet-title {
+    font-size: 120%;
+}
+
+.treet-thumb {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.treet-user {
+    font-size: 90%;
+}
