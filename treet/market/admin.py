@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from market.models import Treet
+
+class TreetAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user')
+
+admin.site.register(Treet, TreetAdmin)
