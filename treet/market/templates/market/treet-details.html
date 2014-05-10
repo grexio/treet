@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tr.title }}{% endblock %}
+
+{% block content %}
+<div class="treet-details">
+  <div class="treet-info1 row jumbotron">
+    <div class="col-xs-6">
+      <iframe width="480" height="270" src="//www.youtube.com/embed/{{ tr.video }}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-xs-6">
+      <h1>{{ tr.title }}</h1>
+    </div>
+  </div>
+  <div class="treet-info2 row">
+    <div class="treet-descr col-xs-8">
+      <p>{{ tr.description }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
