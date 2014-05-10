@@ -3,5 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<button type="button" class="btn btn-default btn-medium pull-right">
+  <a href="{% url 'new-treet' %}"><span class="glyphicon glyphicon-plus-sign"></span> New Treet</a>
+</button>
 <h1>Hello world</h1>
 {% endblock %}
