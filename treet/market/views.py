@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
 from django.http import Http404
 
-from market.models import Treet
+from market.models import Treet, TreetPurchase, TreetReview
 from market.forms import TreetCreationForm
 
 
@@ -30,3 +31,17 @@ def treet_details(request, treet_id):
         return render(request, "market/treet-details.html", {'tr': tr})
     except Treet.DoesNotExist:
         raise Http404()
+
+
+@login_required
+def purchase_treet(request, treet_id):
+    try:
+        tr = Treet.objects.get(id=treet_id)
+    except Treet.DoesNotExist:
+        raise Http404
+    tp = TreetPurchase.objects.create(treet=tr,
+                       purchaser=request.user,
+                       seller=tr.user,
+                       state='PEND')
+    messages.success(request, 'Treat has been successfully purchased.')
+    return redirect(reverse("treet-details", args=(tr.id,)))

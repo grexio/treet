@@ -9,7 +9,31 @@
       <iframe width="480" height="270" src="//www.youtube.com/embed/{{ tr.video }}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-xs-6">
-      <h1>{{ tr.title }}</h1>
+      <div class="row">
+	<h1>{{ tr.title }}</h1>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star"></span>
+	<span class="glyphicon glyphicon-star-empty"></span>
+	<span class="glyphicon glyphicon-star-empty"></span>
+	<span class="glyphicon glyphicon-star-empty"></span>
+        <i>(rating: 7/10)</i>
+	<a href="{% url 'purchase-treet' tr.id %}" type="button" class="btn btn-default btn-medium">
+	  <span class="glyphicon glyphicon-plus-sign"></span> Purchase
+	</a>
+      </div>
+      <div class="row treet-user-tile">
+	<img class="thumb col-xs-2" src="{% static 'img/hello'">
+	<div class="col-xs-3 user-happy-index">
+	  <h2>90%</h2>
+	  <h6>Happy customers</h6>
+	</div>
+	<p class="col-xs-6">Phaneendra is a software developer from Hyderabad specialising in Web development. You can checkout his portfolio at https://github.com/pcx</p>
+      </div>
     </div>
   </div>
   <div class="treet-info2 row">
