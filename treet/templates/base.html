@@ -41,6 +41,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }} <b class="caret"></b></a>
               <ul class="dropdown-menu">
 		<li><a href="#">View Profile</a></li>
+		<li><a href="{% url 'purchased-treets' %}">Purchased Treets</a></li>
+		<li><a href="{% url 'sold-treets' %}">Sold Treets</a></li>
 		<li class="divider"></li>
 		<li><a href="#">Logout</a></li>
               </ul>

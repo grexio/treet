@@ -73,3 +73,9 @@ body {
 .treet-user-tile p {
     font-size: 90%;
 }
+
+.treet-listing-options {
+    min-height: 400px;
+    margin-right: 30px;
+    border-right: 1px solid #ddd;
+}

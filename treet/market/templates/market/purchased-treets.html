@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Purchased Treets{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1><small>Purchased Treets</small></h1>
+</div>
+
+<div class="treet-listing row">
+  <ul class="nav nav-pills nav-stacked col-xs-3 treet-listing-options">
+    {% for state_, state_label in states %}
+    <li {% if state_label == state %}class="active"{% endif %}>
+      <a href="{% url 'purchased-treets' %}?state={{ state_ }}">
+	{{ state_label }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="purchased-treets col-cx-9 treet-listing-items">
+    <table class="table table-striped">
+      <tr>
+	<th>#</th>
+	<th>Treet</th>
+	<th>Seller</th>
+	<th>Purchased On</th>
+      </tr>
+      {% for pt in pts %}
+      <tr>
+	<td>{{ forloop.counter }}</td>
+	<td>{{ pt.treet.title }}</td>
+	<td>{{ pt.seller.username }}</td>
+	<td>{{ pt.purchased_on }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

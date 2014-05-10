@@ -45,3 +45,31 @@ def purchase_treet(request, treet_id):
                        state='PEND')
     messages.success(request, 'Treat has been successfully purchased.')
     return redirect(reverse("treet-details", args=(tr.id,)))
+
+
+@login_required
+def purchased_treets(request):
+    state = request.GET.get('state')
+    if state not in dict(TreetPurchase.STATES):
+        state = 'PEND'
+    pts = TreetPurchase.objects.filter(purchaser=request.user, state=state)
+    return render(request, "market/purchased-treets.html",
+                  {
+                      'pts': pts,
+                      'states': TreetPurchase.STATES,
+                      'active_state': state,
+                  })
+
+
+@login_required
+def sold_treets(request):
+    state = request.GET.get('state')
+    if state not in dict(TreetPurchase.STATES):
+        state = 'PEND'
+    pts = TreetPurchase.objects.filter(seller=request.user, state=state)
+    return render(request, "market/sold-treets.html",
+                  {
+                      'pts': pts,
+                      'states': TreetPurchase.STATES,
+                      'active_state': state,
+                  })
