@@ -7,6 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        url(r'^$', 'core.views.home', name='home'),
+                       url(r'^add-treet/$', 'market.views.new_treet', name='new-treet'),
                        url(r'^admin/', include(admin.site.urls)),
                        ) + static(settings.STATIC_URL,
                                   document_root=settings.STATIC_ROOT)

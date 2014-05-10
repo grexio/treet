@@ -3,8 +3,18 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<button type="button" class="btn btn-default btn-medium pull-right">
-  <a href="{% url 'new-treet' %}"><span class="glyphicon glyphicon-plus-sign"></span> New Treet</a>
-</button>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'new-treet' %}" type="button" class="btn btn-default btn-medium pull-right">
+  <span class="glyphicon glyphicon-plus-sign"></span> New Treet
+</a>
 <h1>Hello world</h1>
 {% endblock %}
